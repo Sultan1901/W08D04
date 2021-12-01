@@ -4,3 +4,4 @@ const roleRouter = express.Router();
 roleRouter.post("/addRole", addRole);
 roleRouter.get("/getRole", getRole);
 module.exports = roleRouter;
+
