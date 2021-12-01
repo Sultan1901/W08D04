@@ -17,6 +17,8 @@ const userRouter = require("./routes/router/user");
 app.use(userRouter);
 const postRouter = require("./routes/router/post");
 app.use(postRouter);
+const commentRouter = require("./routes/router/comment");
+app.use(commentRouter);
 
 const PORT = process.env.PORT || 5001
 app.listen(PORT,()=>{
