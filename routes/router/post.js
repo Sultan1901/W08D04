@@ -10,10 +10,10 @@ const authentication = require("./../middleware/authentication");
 const authorization = require("./../middleware/authorization");
 
 const postRouter = express.Router();
-postRouter.post("/addPost",  addPost);
-postRouter.get("/getPost",  getPost);
+postRouter.post("/addPost", authentication, authorization, addPost);
+postRouter.get("/getPost", authentication,getPost);
 postRouter.get("/getPostById/:id",  getPostById);
-postRouter.delete("/deletePost/:id",  deletePost);
-postRouter.put("/updatePost/:id",  updatePost);
+postRouter.delete("/deletePost/:id", authentication, authorization, deletePost);
+postRouter.put("/updatePost/:id", authentication, authorization, updatePost);
 
 module.exports = postRouter;
