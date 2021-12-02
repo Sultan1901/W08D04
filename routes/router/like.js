@@ -1,4 +1,4 @@
-const exports = require("express");
+const express = require("express");
 const { addLike, deleteLike } = require("./../controller/like");
 
 const authentication = require("./../middleware/authentication");

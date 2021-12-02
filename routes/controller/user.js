@@ -36,6 +36,7 @@ const login = (req, res) => {
           console.log(result);
           const payload = {
             role: result.role,
+            id: result._id
           };
 
           const crackedhashpwd = await bcrypt.compare(
