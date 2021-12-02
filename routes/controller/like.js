@@ -25,10 +25,10 @@ const deleteLike = (req, res) => {
   const { id } = req.params;
 
   likeModel
-    .findByIdAndRemove(id , req.token.id)
+    .findByIdAndRemove(id)
     .exec()
     .then((result) => {
-      res.status(200).json("dislike");
+      res.status(200).json('disliked');
     })
     .catch((err) => {
       res.status(400).json(err);

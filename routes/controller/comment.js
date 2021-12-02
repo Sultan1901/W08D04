@@ -55,7 +55,7 @@ const deleteComment = (req, res) => {
   const { id } = req.params;
 
   commentModel
-    .findByIdAndUpdate(id, { $set: { isDel: true } })
+    .findByIdAndRemove(id)
     .exec()
     .then((result) => {
       res.status(200).json("Deleted");
