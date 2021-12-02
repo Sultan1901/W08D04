@@ -1,4 +1,6 @@
 const postModel = require("../../db/models/post");
+const commentModel = require("../../db/models/comment");
+
 const addPost = (req, res) => {
   const { description, img } = req.body;
 

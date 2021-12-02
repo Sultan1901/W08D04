@@ -1,9 +1,11 @@
 const commentModel = require("../../db/models/comment");
+const postModel = require("../../db/models/post");
+
 const addComment = (req, res) => {
   const { description, postId } = req.body;
   const newcomment = new commentModel({
     description,
-    postId,
+    postId:postId,
     userId:req.token.id
   });
   newcomment
