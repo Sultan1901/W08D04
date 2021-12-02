@@ -4,7 +4,7 @@ const post = new mongoose.Schema({
   time: { type: Date, default: new Date() },
   img: { type: String },
   userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-  commentId: { type: mongoose.Schema.Types.ObjectId, ref: "Comment" },
+  commentId: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
   isDel: { type: Boolean, default: false },
   like: [{ type: mongoose.Schema.Types.ObjectId, ref: "Like" }],
 });

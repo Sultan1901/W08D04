@@ -1,10 +1,12 @@
 const postModel = require("../../db/models/post");
 const addPost = (req, res) => {
-  const { description, img, userId } = req.body;
+  const { description, img } = req.body;
+
+  console.log(req.token);
   const newpost = new postModel({
     description,
     img,
-    userId,
+    userId:req.token.id,
   });
   newpost
     .save()
@@ -19,6 +21,7 @@ const addPost = (req, res) => {
 const getPost = (req, res) => {
   postModel
     .find({})
+    .populate("like commentId")
     .then((result) => {
       res.status(200).json(result);
     })

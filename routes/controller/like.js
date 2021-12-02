@@ -1,16 +1,21 @@
 const likeModel = require("../../db/models/like");
+const postModel = require("../../db/models/post");
 
 const addLike = (req, res) => {
-  const { userId, postId } = req.body;
+  const { postId } = req.body;
   const newlike = new likeModel({
-    postId,
-    userId,
+    postId: postId,
+    userId: req.token.id,
   });
-  newLike
+  newlike
     .save()
     .then((result) => {
-      res.status(201).json(result,"Liked");
-    })
+      postModel
+        .findByIdAndUpdate(postId, { $push: { like: result._id } })
+        .then((result) => {
+        });
+        res.status(201).json(result);
+      })
     .catch((err) => {
       res.status(400).json(err);
     });
@@ -20,7 +25,7 @@ const deleteLike = (req, res) => {
   const { id } = req.params;
 
   likeModel
-    .findByIdAndRemove(id)
+    .findByIdAndRemove(id , req.token.id)
     .exec()
     .then((result) => {
       res.status(200).json("dislike");
@@ -29,4 +34,4 @@ const deleteLike = (req, res) => {
       res.status(400).json(err);
     });
 };
- module.exports = {deleteLike ,addLike}
+module.exports = { deleteLike, addLike };
