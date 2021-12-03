@@ -8,7 +8,7 @@ const SALT = Number(process.env.SALT);
 const SECKEY = process.env.SECKEY;
 
 const register = async (req, res) => {
-  const { email, password, role,username,img } = req.body;
+  const { email, password, role, username, img } = req.body;
   const semail = email.toLowerCase();
   const hashpass = await bcrypt.hash(password, SALT);
   const newUser = new userModel({
@@ -29,16 +29,16 @@ const register = async (req, res) => {
 };
 
 const login = (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, username } = req.body;
   userModel
-    .findOne({ email })
+    .findOne({ $or: [{ email }, { username }] })
     .then(async (result) => {
       if (result) {
-        if (email === result.email) {
+        if (email === result.email || username === result.username) {
           console.log(result);
           const payload = {
             role: result.role,
-            id: result._id
+            id: result._id,
           };
 
           const crackedhashpwd = await bcrypt.compare(

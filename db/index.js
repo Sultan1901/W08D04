@@ -10,4 +10,3 @@ const options ={
 mongoose .connect(process.env.DB).then(()=>{
     console.log('DB OK');
 })
-conn

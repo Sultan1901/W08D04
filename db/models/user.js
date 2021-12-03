@@ -8,6 +8,7 @@ const user = new mongoose.Schema({
   isdel: { type: Boolean },
   role: {
     type: mongoose.Schema.Types.ObjectId,
+    default:"61a73cff90052e6ddab5f098",
     ref: "Role",
   },
 });
