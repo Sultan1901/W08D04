@@ -10,7 +10,7 @@ const cors = require('cors')
 app.use(cors())
 app.use(express())
 app.use(express.json())
-
+// routers export
 const roleRouter = require("./routes/router/role");
 app.use(roleRouter);
 const userRouter = require("./routes/router/user");

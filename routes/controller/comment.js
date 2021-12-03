@@ -1,6 +1,7 @@
 const commentModel = require("../../db/models/comment");
 const postModel = require("../../db/models/post");
 
+// multiple comments finctions
 const addComment = (req, res) => {
   const { description, postId } = req.body;
   const newcomment = new commentModel({

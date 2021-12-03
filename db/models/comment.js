@@ -1,3 +1,4 @@
+//comment schema
 const mongoose = require("mongoose");
 const comment = new mongoose.Schema({
   description: { type: String, required: true },

@@ -1,3 +1,4 @@
+// likes functions only two we need add and delete 
 const likeModel = require("../../db/models/like");
 const postModel = require("../../db/models/post");
 

@@ -1,3 +1,4 @@
+//authorization controller
 const roleModel = require("./../../db/models/role");
 
 const authorization = async (req, res, next) => {

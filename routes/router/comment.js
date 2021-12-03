@@ -1,3 +1,5 @@
+
+// comment routers ,endpoints of comments controllers exported 
 const express = require("express");
 const {
   updateComment,

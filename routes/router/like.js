@@ -1,3 +1,4 @@
+// routers and endpoints
 const express = require("express");
 const { addLike, deleteLike } = require("./../controller/like");
 

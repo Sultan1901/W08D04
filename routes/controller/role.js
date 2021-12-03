@@ -1,3 +1,4 @@
+//there are role and auth controllers
 const roleModel = require("../../db/models/role");
 const addRole = (req, res) => {
   const { role, Permissions } = req.body;

@@ -1,3 +1,4 @@
+//posts schema
 const mongoose = require("mongoose");
 const post = new mongoose.Schema({
   description: { type: String, required: true },

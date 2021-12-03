@@ -1,3 +1,4 @@
+//routers of post comments
 const express = require("express");
 const {
   updatePost,

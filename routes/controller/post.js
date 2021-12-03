@@ -1,6 +1,8 @@
 const postModel = require("../../db/models/post");
 const commentModel = require("../../db/models/comment");
 
+
+// add ,delete,update ,get => functions control the posts
 const addPost = (req, res) => {
   const { description, img } = req.body;
 
@@ -8,7 +10,7 @@ const addPost = (req, res) => {
   const newpost = new postModel({
     description,
     img,
-    userId:req.token.id,
+    userId: req.token.id,
   });
   newpost
     .save()
@@ -19,7 +21,11 @@ const addPost = (req, res) => {
       res.status(400).json(err);
     });
 };
-
+/**
+ *
+ *  there function witch delete like to post
+ *
+ */
 const getPost = (req, res) => {
   postModel
     .find({})
@@ -35,7 +41,7 @@ const getPost = (req, res) => {
 const getPostById = (req, res) => {
   const { id } = req.params;
   postModel
-    .find({ _id: id})
+    .find({ _id: id })
     .then((result) => {
       if (result) {
         res.status(200).json(result);
