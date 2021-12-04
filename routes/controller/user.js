@@ -27,14 +27,17 @@ const register = async (req, res) => {
       res.status(400).json(err);
     });
 };
-
+// can login with username or email or both all we accept there lol
 const login = (req, res) => {
-  const { email, password, username } = req.body;
+  const {  password,  username,email } = req.body;
   userModel
-    .findOne({ $or: [{ email }, { username }] })
+    .findOne({ $or:[{email},{username}]})
     .then(async (result) => {
       if (result) {
-        if (email === result.email || username === result.username) {
+        if ((
+          email === result.email ||
+          username === result.username
+        )) {
           console.log(result);
           const payload = {
             role: result.role,

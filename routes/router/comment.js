@@ -13,8 +13,8 @@ const authorization = require("./../middleware/authorization");
 
 const commentRouter = express.Router();
 commentRouter.post("/addComment", authentication, addComment);
-commentRouter.get("/getComment", authentication, getComment);
-commentRouter.put("/getCommentById/:id", getCommentById);
+commentRouter.get("/getComment",authentication,authorization, getComment);
+commentRouter.get("/getCommentById/:id", authentication, getCommentById);
 commentRouter.delete(
   "/deleteComment/:id",
   authentication,
