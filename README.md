@@ -4,3 +4,5 @@
 ### =====> Also there only admins with full control access , with autherization to all controllers , in addition to that there is only one SuperUser or root whatever u named 
 ## oh too much /**/ of codes wr*** here lol ,
 ## <==> r0x <==> ##
+
+![ER Diagram](./BACKEND2.png)
